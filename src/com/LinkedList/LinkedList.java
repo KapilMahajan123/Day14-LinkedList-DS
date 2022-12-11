@@ -12,7 +12,6 @@ public class LinkedList {
 	class Node {	
 		Object data; 
 		Node next;	//reference to next object in the sequence
-
 		Node(Object data) 
 		{	
 			this.data = data;
@@ -22,18 +21,36 @@ public class LinkedList {
 	 * Create list method
 	 * create new node to be added
 	 */
-	public void CreatList(Object data) {
-		Node newNode = new Node(data);    //new node with given data 
-		System.out.print(newNode.data + " ");  //print data at current node
+	public void addFirst(Object data) 
+		{
+			Node newNode = new Node(data);    //new node with given data 
+			newNode.next = head;
+			head = newNode;
+		}
+	public void display()
+		{
+			Node temp = head;
+			while(temp!=null)
+			{
+				if(temp.next != null)
+					System.out.print(temp.data+" > ");
+				else
+					System.out.print(temp.data);
+				temp = temp.next;
 
-	}
+			}
+		}
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		System.out.println("Welcome to Linked List Problem");
-		list.CreatList(56);  
-		list.CreatList(30);
-		list.CreatList(70);
+		list.addFirst(70);
+		list.display();
+		list.addFirst(30);
+		list.display();
+		list.addFirst(56);
+		list.display();
+		
 	}
 
 }
