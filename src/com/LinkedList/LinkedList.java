@@ -27,6 +27,10 @@ public class LinkedList {
 			newNode.next = head;
 			head = newNode;
 		}
+	/*
+	 * Display position
+	 * No insertion will take place if list empty
+	 */
 	public void display()
 		{
 			Node temp = head;
@@ -36,7 +40,7 @@ public class LinkedList {
 					System.out.print(temp.data+" > ");
 				else
 					System.out.print(temp.data);
-				temp = temp.next;
+				temp = temp.next;  //Advance to next node in the list
 
 			}
 		}
