@@ -59,7 +59,7 @@ public class LinkedList {
 			Node newNode = new Node(data);
 			Node left = head;
 			Node right = left.next;
-			while(index < (position-1))
+			while(index < (position-1)) //initializing the position to index -1
 				{
 					left = left.next;
 					right = right.next;
@@ -93,6 +93,46 @@ public class LinkedList {
 			{
 				head = head.next;
 			}
+	public void deletelast()
+		{
+			if(head == null)
+				System.out.println("List is empty");
+			else if(head.next == null)
+				head = null;
+			else
+				{
+					Node temp = head;
+					while(temp.next.next != null)
+					{
+						temp = temp.next;
+					}
+						temp.next= null;
+				}
+		}
+	//Search method
+	public Object searhElement(Object input)
+			{
+		
+				Node temp = head;
+				int index = 0;
+				/*
+				 * loop is used to search the entire linked
+				 * Gradually increases index while
+				 * traversing through the linked list
+				 * return result of that particular input
+				 */
+				while(temp != null)
+					{
+						index++; 
+					if(temp.data == input)
+					{
+						String result = temp.data+" element found at index " +index;
+						return result;
+					}
+					temp = temp.next;
+					}
+				return null;
+			}
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
@@ -103,15 +143,27 @@ public class LinkedList {
 		list.display();
 		list.addFirst(70);
 		list.display();
+		list.addFirst(127);
+		list.display();
+		list.addFirst(65);
+		list.display();
+		list.addFirst(599);
+		list.display();
+		list.addFirst(20);
+		list.display();
 		System.out.println("Enter Position Number To Add:- ");
 		int position = scanner.nextInt();
 		list.addPosition(30, position);
 		list.display();
 		
-		list.deleteFirst();
+		list.deletelast();
 		list.display();
 		list.deleteFirst();
 		list.display();
+		System.out.println();
+		System.out.println("enter Element Number To Search: ");
+		int input = scanner.nextInt();
+		System.out.println(list.searhElement(input));  
 		
 	}
 
