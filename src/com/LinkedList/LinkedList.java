@@ -93,22 +93,6 @@ public class LinkedList {
 			{
 				head = head.next;
 			}
-	public void deletelast()
-		{
-			if(head == null)
-				System.out.println("List is empty");
-			else if(head.next == null)
-				head = null;
-			else
-				{
-					Node temp = head;
-					while(temp.next.next != null)
-					{
-						temp = temp.next;
-					}
-						temp.next= null;
-				}
-		}
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
@@ -124,7 +108,7 @@ public class LinkedList {
 		list.addPosition(30, position);
 		list.display();
 		
-		list.deletelast();
+		list.deleteFirst();
 		list.display();
 		list.deleteFirst();
 		list.display();
